@@ -17,7 +17,7 @@ class TasksState extends Equatable {
 
   Map<String, dynamic> toMap() {
     return {
-      'tasks': pendingTasks.map((x) => x.toMap()).toList(),
+      'pendingTasks': pendingTasks.map((x) => x.toMap()).toList(),
       'completedTasks': completedTasks.map((x) => x.toMap()).toList(),
       'favouriteTasks': favouriteTasks.map((x) => x.toMap()).toList(),
       'removedTasks': removedTasks.map((x) => x.toMap()).toList()
@@ -26,11 +26,12 @@ class TasksState extends Equatable {
 
   factory TasksState.fromMap(Map<String, dynamic> map) {
     return TasksState(
-      pendingTasks: List<Task>.from(map['tasks']?.map((x) => Task.fromMap(x))),
+      pendingTasks:
+          List<Task>.from(map['pendingTasks']?.map((x) => Task.fromMap(x))),
       completedTasks:
-          List<Task>.from(map['tasks']?.map((x) => Task.fromMap(x))),
+          List<Task>.from(map['completedTasks']?.map((x) => Task.fromMap(x))),
       favouriteTasks:
-          List<Task>.from(map['tasks']?.map((x) => Task.fromMap(x))),
+          List<Task>.from(map['favouriteTasks']?.map((x) => Task.fromMap(x))),
       removedTasks:
           List<Task>.from(map['removedTasks']?.map((x) => Task.fromMap(x))),
     );

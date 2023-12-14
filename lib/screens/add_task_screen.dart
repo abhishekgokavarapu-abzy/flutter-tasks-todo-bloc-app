@@ -14,6 +14,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController titleController = TextEditingController();
+    final TextEditingController descriptionController = TextEditingController();
     return Container(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -25,11 +26,25 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           const SizedBox(
             height: 10,
           ),
-          TextField(
-            autofocus: true,
-            controller: titleController,
-            decoration: const InputDecoration(
-                label: Text("Title"), border: OutlineInputBorder()),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+            child: TextField(
+              autofocus: true,
+              controller: titleController,
+              decoration: const InputDecoration(
+                  label: Text("Title"), border: OutlineInputBorder()),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+            child: TextField(
+              autofocus: true,
+              minLines: 3,
+              maxLines: 5,
+              controller: descriptionController,
+              decoration: const InputDecoration(
+                  label: Text("Description"), border: OutlineInputBorder()),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -41,8 +56,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   onPressed: () {
                     var task = Task(
                         title: titleController.text,
+                        description: descriptionController.text,
                         id: TimeUuidGenerator().generate().toString());
-
                     context.read<TasksBloc>().add(AddTask(task: task));
                     Navigator.pop(context);
                   },

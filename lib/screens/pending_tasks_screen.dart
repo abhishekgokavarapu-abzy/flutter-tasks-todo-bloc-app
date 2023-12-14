@@ -13,7 +13,6 @@ class PendingTasksScreen extends StatelessWidget {
         return Scaffold(
           body: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
                   height: 10,

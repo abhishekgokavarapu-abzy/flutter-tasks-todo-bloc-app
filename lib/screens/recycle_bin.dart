@@ -22,7 +22,6 @@ class RecycleBin extends StatelessWidget {
           drawer: const AppDrawer(),
           body: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
                   height: 10,
